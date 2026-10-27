@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#071a33">
+  <title>Grupo Aquino | Gestão e Controle</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <section id="loginScreen" class="login-screen">
+    <div class="login-card">
+      <div class="brand-mark">A</div><p class="eyebrow">GRUPO AQUINO</p>
+      <h1>Gestão e Controle</h1><p class="muted">Acesse o painel administrativo</p>
+      <form id="loginForm">
+        <label>E-MAIL<input id="loginEmail" type="email" autocomplete="username" required></label>
+        <label>SENHA<input id="loginPassword" type="password" autocomplete="current-password" required></label>
+        <button class="primary full" type="submit">ENTRAR NO SISTEMA</button>
+        <p id="loginMessage" class="message"></p>
+      </form>
+      <small>Configure as credenciais do Supabase em <code>app.js</code>.</small>
+    </div>
+  </section>
+  <div id="appShell" class="app-shell hidden">
+    <aside id="sidebar" class="sidebar">
+      <div class="brand"><div class="brand-mark small">A</div><div><b>GRUPO AQUINO</b><small>GESTÃO E CONTROLE</small></div></div>
+      <nav>
+        <p class="nav-label">MENU PRINCIPAL</p>
+        <button class="nav-item active" data-page="overview">▦ <span>Visão geral</span></button>
+        <p class="nav-label">CADASTROS</p>
+        <button class="nav-item" data-page="employees">♙ <span>Funcionários</span></button>
+        <button class="nav-item" data-page="fleet">▣ <span>Frota</span></button>
+        <button class="nav-item" data-page="equipment">⚙ <span>Equipamentos</span></button>
+        <p class="nav-label">LANÇAMENTOS</p>
+        <button class="nav-item" data-page="leave">▤ <span>Férias</span></button>
+        <button class="nav-item" data-page="medical">✚ <span>Atestados e exames</span></button>
+        <button class="nav-item" data-page="absence">◷ <span>Faltas injustificadas</span></button>
+        <button class="nav-item" data-page="discipline">☷ <span>Advertências e suspensão</span></button>
+        <button class="nav-item" data-page="supplies">▣ <span>Uniformes / EPI / Materiais</span></button>
+      </nav>
+      <div class="sidebar-bottom"><span class="status-dot"></span> Sistema preparado para Supabase</div>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <button id="menuToggle" class="icon-btn" aria-label="Abrir menu">☰</button>
+        <div><p class="eyebrow">PAINEL ADMINISTRATIVO</p><h2 id="pageTitle">Visão geral</h2></div>
+        <div class="top-actions"><span id="todayLabel"></span><button id="logoutBtn" class="secondary">SAIR</button></div>
+      </header>
+      <div id="notice" class="notice hidden"></div>
+      <section id="pageContent"></section>
+      <footer>Desenvolvido pelo <b>Grupo Aquino</b></footer>
+    </main>
+  </div>
+  <dialog id="recordDialog" class="record-dialog">
+    <form id="recordForm" method="dialog">
+      <div class="dialog-head"><div><p class="eyebrow">CADASTRO / EDIÇÃO</p><h3 id="dialogTitle">Novo registro</h3></div><button type="button" id="closeDialog" class="icon-btn">✕</button></div>
+      <div id="formFields" class="form-grid"></div>
+      <div class="dialog-actions"><button type="button" id="cancelRecord" class="secondary">CANCELAR</button><button type="submit" class="primary">SALVAR REGISTRO</button></div>
+      <p id="formMessage" class="message"></p>
+    </form>
+  </dialog>
+</body>
+</html>
