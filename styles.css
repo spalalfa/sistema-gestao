@@ -11,3 +11,22 @@ footer{text-align:center;border-top:1px solid var(--line);margin-top:40px;paddin
 @media(max-width:1000px){.sidebar{width:230px}.main{margin-left:230px;padding:0 20px}.stats-grid{grid-template-columns:1fr}.overview-bottom{grid-template-columns:1fr}.topbar h2{font-size:20px}}
 @media(max-width:700px){.sidebar{transform:translateX(-100%);transition:transform .25s;width:275px;box-shadow:12px 0 35px #00152b30}.sidebar.open{transform:translateX(0)}.main{margin-left:0;padding:0 14px}.topbar{min-height:83px;gap:10px}.topbar #menuToggle{display:block;flex-shrink:0}.topbar h2{font-size:18px}.top-actions{gap:7px}.top-actions #todayLabel{display:none}.top-actions .secondary{padding:10px}.welcome{align-items:flex-start;padding:20px;flex-direction:column}.welcome h3{font-size:19px}.welcome .date-pill{white-space:normal}.stats-grid{gap:11px}.stat-card{padding:16px}.stat-numbers b{font-size:20px}.page-toolbar{align-items:stretch}.page-toolbar .toolbar-actions{width:100%}.page-toolbar .toolbar-actions button{flex:1}.search{max-width:none;width:100%}.form-grid{grid-template-columns:1fr}.form-grid label.wide{grid-column:auto}.record-dialog form{padding:17px}.dialog-actions button{flex:1}.login-card{padding:28px 23px}}
 .autofilled{background:#eef5ff!important;color:#24517f!important;border-color:#b8d5f6!important}
+
+/* Campos condicionais e calculados do cadastro de funcionários */
+#formFields .field-disabled { opacity: .62; }
+#formFields input:disabled, #formFields select:disabled, #formFields input[readonly] { background: #edf2f7; color: #526174; cursor: not-allowed; }
+
+/* Filtros, avisos e modo escuro */
+.filter{max-width:190px}.count-info{font-size:11px;color:var(--muted);margin:0 0 8px}.more-wrap{text-align:center;margin-top:14px}.data-table th[data-sort]{cursor:pointer;user-select:none;white-space:nowrap}.data-table th[data-sort]:hover{color:var(--blue)}.row-actions{flex-wrap:wrap;align-items:center}.toolbar-actions{flex-wrap:wrap}
+.alert-list{max-height:440px;overflow:auto}.alert-row.clickable{cursor:pointer}.alert-row.clickable:hover{background:#1677e810}.alert-bullet.sev2{background:#feecec;color:#c03c3c}.alert-bullet.sev1{background:#fff1df;color:#c8790f}.alert-bullet.sev0{background:#e9f3ff;color:#1475e5}.alert-bullet.ok{background:#e5f7ef;color:#10835c}
+.bell{position:relative}.bell-count{position:absolute;top:-6px;right:-6px;min-width:18px;height:18px;padding:0 4px;border-radius:9px;background:var(--red);color:#fff;font-size:10px;font-weight:800;display:grid;place-items:center}
+[data-theme=dark]{color-scheme:dark;--bg:#0a1424;--ink:#e3ecf8;--muted:#8fa4bf;--line:#223350;--white:#111e33}
+[data-theme=dark] .stat-card,[data-theme=dark] .panel,[data-theme=dark] .table-wrap{background:#111e33;border-color:#223350}
+[data-theme=dark] input,[data-theme=dark] select,[data-theme=dark] textarea{background:#0d1a2e;border-color:#2a3f5f;color:#e3ecf8}
+[data-theme=dark] .data-table th{background:#0f1b2f;color:#8fa4bf}[data-theme=dark] .data-table td,[data-theme=dark] .alert-row,[data-theme=dark] .activity-row{border-color:#1d2d47}
+[data-theme=dark] .icon-btn,[data-theme=dark] .secondary,[data-theme=dark] .mini-btn{background:#1a2b47;color:#bcd3ef}[data-theme=dark] .mini-btn.delete{background:#3a1d24;color:#ff9a9a}
+[data-theme=dark] .record-dialog{background:#111e33;color:#e3ecf8}[data-theme=dark] .notice{background:#10294a;color:#9ccbff}[data-theme=dark] .stat-icon{background:#12294a}
+[data-theme=dark] .badge{background:#0f3a2c;color:#5fe0b0}[data-theme=dark] .badge.warn{background:#44300f;color:#ffbf6b}[data-theme=dark] .badge.off{background:#44181d;color:#ff9a9a}
+[data-theme=dark] .autofilled{background:#12294a!important;color:#9ccbff!important;border-color:#2a4a7a!important}
+[data-theme=dark] #formFields input:disabled,[data-theme=dark] #formFields select:disabled,[data-theme=dark] #formFields input[readonly]{background:#16253d;color:#8fa4bf}
+[data-theme=dark] .alert-bullet.sev2{background:#44181d}[data-theme=dark] .alert-bullet.sev1{background:#44300f}[data-theme=dark] .alert-bullet.sev0{background:#12294a}

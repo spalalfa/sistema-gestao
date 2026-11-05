@@ -1,0 +1,19 @@
+GRUPO AQUINO — GESTÃO E CONTROLE (VERSÃO FINAL)
+
+ARQUIVOS PARA PUBLICAR (GitHub Pages / Hostinger): index.html, styles.css, app.js
+A URL e a chave anon do Supabase já estão configuradas no início do app.js.
+
+INSTALAÇÃO (nesta ordem)
+1. Supabase > SQL Editor: cole e execute SETUP_FINAL.sql (substitui todos os SQL antigos; pode rodar mais de uma vez).
+2. Supabase > Authentication > Users: crie os usuários que vão acessar (e-mail + senha, marque "Auto Confirm User").
+3. Supabase > Authentication > Sign In / Providers: DESATIVE "Allow new users to sign up". Sem isso, qualquer pessoa com o link
+   poderia criar conta e ler dados de funcionários (CPF, CID etc.).
+4. Importar funcionários (só uma vez, com a tabela vazia): Table Editor > funcionarios > Import data from CSV >
+   funcionarios_importacao_supabase.csv. Se já importou antes, NÃO importe de novo.
+5. Substitua index.html, styles.css e app.js no repositório e aguarde a publicação.
+
+OBSERVAÇÕES
+- Matrículas importadas como IMPORTADO-XXXX são códigos técnicos: confira a coluna matricula_origem.
+- Valores importados fora das listas (ex.: sexo "M", raça "NEGRA") são preservados ao editar.
+- A busca de CEP (ViaCEP) e de CID-10 exige internet.
+- Não use a chave service_role no navegador. Faça backup do banco periodicamente (Supabase > Database > Backups).

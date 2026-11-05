@@ -20,7 +20,7 @@
         <button class="primary full" type="submit">ENTRAR NO SISTEMA</button>
         <p id="loginMessage" class="message"></p>
       </form>
-      <small>Configure as credenciais do Supabase em <code>app.js</code>.</small>
+      <small>Acesso restrito a usuários autorizados.</small>
     </div>
   </section>
   <div id="appShell" class="app-shell hidden">
@@ -40,13 +40,13 @@
         <button class="nav-item" data-page="discipline">☷ <span>Advertências e suspensão</span></button>
         <button class="nav-item" data-page="supplies">▣ <span>Uniformes / EPI / Materiais</span></button>
       </nav>
-      <div class="sidebar-bottom"><span class="status-dot"></span> Sistema preparado para Supabase</div>
+      <div class="sidebar-bottom"><span class="status-dot"></span> Conectado ao Supabase</div>
     </aside>
     <main class="main">
       <header class="topbar">
         <button id="menuToggle" class="icon-btn" aria-label="Abrir menu">☰</button>
         <div><p class="eyebrow">PAINEL ADMINISTRATIVO</p><h2 id="pageTitle">Visão geral</h2></div>
-        <div class="top-actions"><span id="todayLabel"></span><button id="logoutBtn" class="secondary">SAIR</button></div>
+        <div class="top-actions"><span id="todayLabel"></span><button id="bellBtn" class="icon-btn bell" title="Avisos e vencimentos" aria-label="Avisos">🔔<span id="bellCount" class="bell-count hidden"></span></button><button id="themeBtn" class="icon-btn" title="Modo claro/escuro" aria-label="Alternar tema">☾</button><button id="logoutBtn" class="secondary">SAIR</button></div>
       </header>
       <div id="notice" class="notice hidden"></div>
       <section id="pageContent"></section>
