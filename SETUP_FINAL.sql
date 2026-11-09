@@ -61,5 +61,12 @@ update public.lancamentos_medicos set tipo='DECLARAÇÃO DE COMPARECIMENTO' wher
 update public.lancamentos_medicos set especialidade='OUTROS' where especialidade='OUTRO';
 update public.lancamentos_medicos set data_termino=data_ocorrido+(dias_afastamento-1) where data_termino is null and data_ocorrido is not null and coalesce(dias_afastamento,0)>0;
 
+-- 5c) Férias, Advertências e Materiais (nova versão)
+alter table public.lancamentos_ferias add column if not exists periodo_aquisitivo_inicio date;
+alter table public.lancamentos_ferias add column if not exists periodo_aquisitivo_fim date;
+alter table public.lancamentos_disciplinares add column if not exists data_aplicada date;
+alter table public.lancamentos_materiais add column if not exists ficha_epi text;
+alter table public.lancamentos_materiais add column if not exists tempo_validade integer;
+
 -- 6) Atualiza o cache de esquema da API (corrige erro HTTP 400 por coluna desconhecida)
 notify pgrst, 'reload schema';
