@@ -4,7 +4,7 @@ ARQUIVOS PARA PUBLICAR (GitHub Pages / Hostinger): index.html, styles.css, app.j
 A URL e a chave anon do Supabase já estão configuradas no início do app.js.
 
 INSTALAÇÃO (nesta ordem)
-1. Supabase > SQL Editor: cole e execute SETUP_FINAL.sql (substitui todos os SQL antigos; pode rodar mais de uma vez).
+1. Supabase > SQL Editor: cole e execute o SETUP_FINAL.sql atualizado (pode executar novamente; cria as novas tabelas e colunas sem apagar os registros existentes).
 2. Supabase > Authentication > Users: crie os usuários que vão acessar (e-mail + senha, marque "Auto Confirm User").
 3. Supabase > Authentication > Sign In / Providers: DESATIVE "Allow new users to sign up". Sem isso, qualquer pessoa com o link
    poderia criar conta e ler dados de funcionários (CPF, CID etc.).
@@ -17,3 +17,13 @@ OBSERVAÇÕES
 - Valores importados fora das listas (ex.: sexo "M", raça "NEGRA") são preservados ao editar.
 - A busca de CEP (ViaCEP) e de CID-10 exige internet.
 - Não use a chave service_role no navegador. Faça backup do banco periodicamente (Supabase > Database > Backups).
+
+
+ATUALIZAÇÃO DE NOVEMBRO/2026
+- Funcionários: lançamentos de férias, atestados/exames, faltas, advertências/suspensões e entregas agora ficam acessíveis em subabas do módulo Funcionários.
+- Cadastros de Uniformes, EPI's e Materiais disponíveis nas subabas de Uniformes/EPI's/Materiais.
+- Frota: aquisições, abastecimentos, manutenções e despesas em tabelas próprias.
+- Equipamentos: aquisições, abastecimentos e manutenções em tabelas próprias.
+- Filtros por texto, status e período (data inicial/final) nas consultas.
+- Férias: data de inclusão, quantidade de dias e datas de início/final/retorno.
+- Visão geral: avisos com antecedência de 15 dias e indicadores de afastamentos.

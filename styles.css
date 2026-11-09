@@ -37,3 +37,11 @@ footer{text-align:center;border-top:1px solid var(--line);margin-top:40px;paddin
 
 .subtabs{display:flex;gap:8px;margin-bottom:16px;border-bottom:1px solid var(--line)}.subtabs button{border:0;background:none;padding:10px 16px;font-weight:700;font-size:12px;color:var(--muted);cursor:pointer;border-bottom:3px solid transparent}.subtabs button.active{color:var(--blue);border-bottom-color:var(--blue)}
 tr.detail.hidden{display:none}tr.detail td{background:#1677e80a;font-size:12px;line-height:1.9}.crm-links{font-size:10px;color:var(--muted)}.crm-links a{color:var(--blue);font-weight:700}
+
+/* Navegação por subabas dos módulos */
+.module-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px;padding:10px;background:var(--panel, #fff);border:1px solid var(--line, #e5eaf1);border-radius:12px}
+.module-tabs button{border:1px solid var(--line, #dce3ec);background:transparent;color:var(--text, #19324f);padding:9px 13px;border-radius:8px;font-size:11px;font-weight:800;cursor:pointer}
+.module-tabs button:hover,.module-tabs button.active{background:#12365d;color:#fff;border-color:#12365d}
+#dateFromFilter,#dateToFilter{min-width:145px}
+.overview-number{display:block;font-size:32px;margin:10px 0;color:var(--text, #12365d)}
+@media(max-width:700px){.module-tabs{overflow-x:auto;flex-wrap:nowrap}.module-tabs button{white-space:nowrap}}
