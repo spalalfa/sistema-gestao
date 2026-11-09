@@ -53,5 +53,13 @@ create unique index if not exists funcionarios_matricula_uk on public.funcionari
 create unique index if not exists frota_placa_uk on public.frota(placa);
 create unique index if not exists equipamentos_codigo_uk on public.equipamentos(codigo);
 
+-- 5b) Ajustes de Atestados e Faltas (nova versão)
+alter table public.lancamentos_medicos add column if not exists dia_completo boolean default false;
+alter table public.lancamentos_medicos add column if not exists data_termino date;
+alter table public.lancamentos_faltas add column if not exists sistema text;
+update public.lancamentos_medicos set tipo='DECLARAÇÃO DE COMPARECIMENTO' where tipo='DECLARAÇÃO';
+update public.lancamentos_medicos set especialidade='OUTROS' where especialidade='OUTRO';
+update public.lancamentos_medicos set data_termino=data_ocorrido+(dias_afastamento-1) where data_termino is null and data_ocorrido is not null and coalesce(dias_afastamento,0)>0;
+
 -- 6) Atualiza o cache de esquema da API (corrige erro HTTP 400 por coluna desconhecida)
 notify pgrst, 'reload schema';

@@ -30,3 +30,7 @@ footer{text-align:center;border-top:1px solid var(--line);margin-top:40px;paddin
 [data-theme=dark] .autofilled{background:#12294a!important;color:#9ccbff!important;border-color:#2a4a7a!important}
 [data-theme=dark] #formFields input:disabled,[data-theme=dark] #formFields select:disabled,[data-theme=dark] #formFields input[readonly]{background:#16253d;color:#8fa4bf}
 [data-theme=dark] .alert-bullet.sev2{background:#44181d}[data-theme=dark] .alert-bullet.sev1{background:#44300f}[data-theme=dark] .alert-bullet.sev0{background:#12294a}
+
+/* Atestados / visão geral */
+.check-line{flex-direction:row;align-items:center;gap:10px;font-size:12px;cursor:pointer}.check-line input{width:auto}.blue{color:var(--blue)}.stats-grid.cols2{grid-template-columns:repeat(2,minmax(0,1fr))}.stat-card.full-row{grid-column:1/-1}.stat-numbers{flex-wrap:wrap}.stat-numbers div{min-width:80px}
+@media(max-width:700px){.stats-grid.cols2{grid-template-columns:1fr}}
