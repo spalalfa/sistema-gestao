@@ -27,3 +27,27 @@ ATUALIZAÇÃO DE NOVEMBRO/2026
 - Filtros por texto, status e período (data inicial/final) nas consultas.
 - Férias: data de inclusão, quantidade de dias e datas de início/final/retorno.
 - Visão geral: avisos com antecedência de 15 dias e indicadores de afastamentos.
+
+
+CONTROLE AVANÇADO DE EPI (NOV/2026)
+- Na aba Cadastro de EPI’s: importar planilha TXT/TSV/CSV de histórico (somente linhas classificadas como EPI).
+- Importação: DATA -> data de inclusão; ENTREGA -> data de entrega; validade não é presumida. Fazer uma única importação para evitar duplicidades.
+- Configure TEMPO DE VALIDADE (MESES) no cadastro do EPI e esse prazo será usado para calcular a validade nas novas entregas.
+- Matriz por função: marque os EPI obrigatórios conforme a avaliação de riscos/PGR.
+- Relatórios: tempo de uso estimado até a próxima entrega do mesmo EPI e alertas para itens vencidos / com vencimento em até 30 dias.
+- Execute novamente SETUP_FINAL.sql no Supabase antes de publicar os arquivos atualizados.
+
+
+IMPORTAÇÃO DO HISTÓRICO DE EPI (VERSÃO ATUALIZADA)
+- O botão IMPORTAR PLANILHA fica na subaba Funcionários > Uniformes / EPI’s / Materiais > EPI’s, junto ao histórico de entregas.
+- O menu lateral Catálogo de EPI’s é separado: nele você cadastra o nome do equipamento e o prazo de validade em meses.
+- A importação ignora linhas já existentes para reduzir duplicidades. Valores de STATUS diferentes de NOVO/USADO ficam em branco para não violar regras do banco.
+- Para projetos que já executaram o SQL anterior, execute CORRECAO_IMPORTACAO_EPI.sql no Supabase SQL Editor para substituir políticas RLS antigas/conflitantes.
+
+ATUALIZAÇÕES DA VERSÃO 7
+- Matrícula exibida completa somente na lista de Funcionários; nas demais listas e nos relatórios aparece apenas os últimos 6 dígitos. O valor completo continua armazenado no Supabase.
+- Na lista de entregas, a coluna agora é TEMPO DE USO e calcula anos, meses e dias desde a data de entrega até hoje. O campo não é mais preenchido manualmente.
+- A importação histórica não interpreta a coluna antiga TEMPO DE USO como prazo de validade.
+- A coluna FICHA DE EPI tem largura reduzida e quebra de linha.
+- Relatórios de EPI ganharam atalhos por situação, filtros por funcionário/função/status, busca e ordenação. A classificação de vencido usa o prazo em meses cadastrado no Catálogo de EPI.
+- Para alertas de vencimento funcionarem, preencha TEMPO DE VALIDADE (MESES) no Catálogo de EPI para cada item.

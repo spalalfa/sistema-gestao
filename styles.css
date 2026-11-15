@@ -45,3 +45,31 @@ tr.detail.hidden{display:none}tr.detail td{background:#1677e80a;font-size:12px;l
 #dateFromFilter,#dateToFilter{min-width:145px}
 .overview-number{display:block;font-size:32px;margin:10px 0;color:var(--text, #12365d)}
 @media(max-width:700px){.module-tabs{overflow-x:auto;flex-wrap:nowrap}.module-tabs button{white-space:nowrap}}
+
+/* Recursos avançados de EPI */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:18px 0}.stat-card{background:var(--card,#fff);border:1px solid var(--border,#ddd);border-radius:12px;padding:16px}.stat-card span{display:block;font-size:11px;color:var(--muted,#777);font-weight:700}.stat-card b{display:block;font-size:26px;margin-top:8px}.data-table input[type=checkbox]{width:18px;height:18px;accent-color:var(--primary,#1d5fa7)}
+
+
+/* Acesso direto e visível ao controle de entregas de EPI */
+.epi-action-panel{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 20px;margin:0 0 18px;background:linear-gradient(110deg,#09264a,#0d4380);color:#fff;border-radius:14px;box-shadow:0 8px 24px #09264a20}
+.epi-action-panel h3{margin:0 0 6px;font-size:15px;color:#fff}.epi-action-panel p{margin:0;color:#c6dbf3;font-size:11px;line-height:1.5}.epi-action-buttons{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}.epi-action-buttons .primary{background:#fff;color:#0c4e91;box-shadow:none}.epi-action-buttons .secondary{background:#ffffff1c;color:#fff;border:1px solid #ffffff50}
+@media(max-width:760px){.epi-action-panel{align-items:stretch;flex-direction:column}.epi-action-buttons{justify-content:stretch}.epi-action-buttons button{flex:1}}
+
+/* Ajustes de leitura da ficha de EPI e dos relatórios */
+.data-table td.epi-ficha-cell,.data-table th.epi-ficha-head{max-width:78px;white-space:normal;overflow-wrap:anywhere;word-break:break-word;line-height:1.35}
+.epi-report-stats .report-link{display:block;text-decoration:none;color:inherit;transition:transform .15s,border-color .15s;cursor:pointer}
+.epi-report-stats .report-link:hover{transform:translateY(-2px);border-color:var(--blue)}
+.epi-report-stats .report-link small{display:block;margin-top:8px;color:var(--blue);font-weight:700;font-size:10px}
+.epi-report-filters{margin:18px 0;padding:16px}
+.epi-report-filters h3,.epi-report-section h3{margin:0 0 12px;font-size:13px}
+.epi-report-filters .toolbar-actions{display:grid;grid-template-columns:2fr repeat(4,minmax(150px,1fr));gap:8px}
+.epi-report-section{scroll-margin-top:18px;margin:22px 0}
+.epi-report-section .table-wrap{margin-top:10px}
+@media(max-width:900px){.epi-report-filters .toolbar-actions{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.epi-report-filters .toolbar-actions{grid-template-columns:1fr}.epi-report-stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+
+/* Destaque do registro aberto a partir dos avisos da Visão Geral */
+.row-highlight{outline:3px solid #e6a23c!important;background:rgba(230,162,60,.18)!important;animation:rowHighlightPulse 1.2s ease-in-out 2;}
+@keyframes rowHighlightPulse{50%{background:rgba(230,162,60,.34)}}
+.alert-row.clickable{cursor:pointer}.alert-row.clickable:hover{background:rgba(230,162,60,.10)}

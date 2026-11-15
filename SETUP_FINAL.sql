@@ -325,3 +325,52 @@ do $$ declare t text; c text; begin
   alter table public.lancamentos_materiais add column if not exists tempo_validade integer;
   alter table public.lancamentos_materiais add column if not exists validade date;
 end $$;
+
+
+-- CONTROLE AVANÇADO DE EPI: matriz de obrigatoriedade por função.
+create table if not exists public.epi_funcao_regras (
+ id uuid primary key default gen_random_uuid(),
+ created_at timestamptz not null default now(),
+ funcao text not null,
+ epi text not null,
+ obrigatorio boolean not null default true,
+ unique(funcao, epi)
+);
+alter table public.epi_funcao_regras enable row level security;
+drop policy if exists "authenticated select" on public.epi_funcao_regras;
+create policy "authenticated select" on public.epi_funcao_regras for select to authenticated using (true);
+drop policy if exists "authenticated insert" on public.epi_funcao_regras;
+create policy "authenticated insert" on public.epi_funcao_regras for insert to authenticated with check (true);
+drop policy if exists "authenticated update" on public.epi_funcao_regras;
+create policy "authenticated update" on public.epi_funcao_regras for update to authenticated using (true) with check (true);
+drop policy if exists "authenticated delete" on public.epi_funcao_regras;
+create policy "authenticated delete" on public.epi_funcao_regras for delete to authenticated using (true);
+
+-- Campos adicionais usados na importação e rastreabilidade de entregas.
+alter table public.lancamentos_materiais add column if not exists tempo_validade integer;
+alter table public.lancamentos_materiais add column if not exists ficha_epi text;
+notify pgrst, 'reload schema';
+
+alter table public.lancamentos_materiais add column if not exists categoria_item text;
+notify pgrst, 'reload schema';
+
+
+-- CORREÇÃO DE IMPORTAÇÃO DE EPI: remove políticas antigas/conflitantes da tabela de entregas
+-- e recria acesso CRUD apenas para usuários autenticados do sistema.
+do $$
+declare pol record;
+begin
+  for pol in
+    select policyname from pg_policies
+    where schemaname='public' and tablename='lancamentos_materiais'
+  loop
+    execute format('drop policy if exists %I on public.lancamentos_materiais', pol.policyname);
+  end loop;
+end $$;
+alter table public.lancamentos_materiais enable row level security;
+create policy "authenticated select" on public.lancamentos_materiais for select to authenticated using (true);
+create policy "authenticated insert" on public.lancamentos_materiais for insert to authenticated with check (true);
+create policy "authenticated update" on public.lancamentos_materiais for update to authenticated using (true) with check (true);
+create policy "authenticated delete" on public.lancamentos_materiais for delete to authenticated using (true);
+grant select, insert, update, delete on public.lancamentos_materiais to authenticated;
+notify pgrst, 'reload schema';
