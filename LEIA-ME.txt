@@ -51,3 +51,20 @@ ATUALIZAÇÕES DA VERSÃO 7
 - A coluna FICHA DE EPI tem largura reduzida e quebra de linha.
 - Relatórios de EPI ganharam atalhos por situação, filtros por funcionário/função/status, busca e ordenação. A classificação de vencido usa o prazo em meses cadastrado no Catálogo de EPI.
 - Para alertas de vencimento funcionarem, preencha TEMPO DE VALIDADE (MESES) no Catálogo de EPI para cada item.
+
+ATUALIZAÇÃO — SUBABA DE DEMISSÃO / AVISO PRÉVIO
+1. Execute o arquivo MIGRACAO_DESLIGAMENTOS.sql no SQL Editor do Supabase.
+2. Publique app.js, styles.css e index.html atualizados no GitHub Pages.
+3. Na aba Funcionários, abra a subaba DEMISSÃO para registrar aviso prévio.
+4. O motivo da dispensa é obrigatório. A data prevista de término é calculada a partir do início do aviso e da modalidade escolhida.
+5. A Visão Geral lista os funcionários atualmente nos períodos de experiência de 45 e 90 dias e destaca os vencimentos em até 15 dias. Cada funcionário tem um botão para abrir o formulário de demissão já selecionado.
+6. Registros de aviso com término previsto futuro aparecem no card FUNCIONÁRIOS EM AVISO PRÉVIO.
+
+Observação: o registro do aviso não altera automaticamente a situação cadastral do funcionário para DESLIGADO. A situação deve ser atualizada quando o desligamento efetivamente ocorrer.
+
+
+ATUALIZAÇÃO v3 — DESLIGAMENTO AUTOMÁTICO E TEMPO DE SERVIÇO
+1. Antes de publicar, execute MIGRACAO_STATUS_DEMISSAO.sql no SQL Editor do Supabase.
+2. Quando a data prevista de término do aviso prévio chegar ou já estiver vencida, o sistema altera automaticamente a situação do funcionário para DESLIGADO e grava a data em data_demissao. A rotina é executada ao abrir a Visão Geral e após salvar um aviso/desligamento.
+3. Na aba Funcionários, os campos manuais de afastamento foram removidos. A situação AFASTADO é calculada automaticamente com base em falta registrada para o dia atual, atestado/afastamento médico com período vigente ou suspensão vigente. Quando o período termina, volta para ATIVO (sem alterar quem já está DESLIGADO).
+4. O campo TEMPO DE SERVIÇO aparece logo após DATA DE ADMISSÃO no formulário e na tabela de Funcionários, calculado automaticamente. DATA DE DEMISSÃO também aparece na tabela e é preenchida pela rotina de aviso prévio.

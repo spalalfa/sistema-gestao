@@ -73,3 +73,22 @@ tr.detail.hidden{display:none}tr.detail td{background:#1677e80a;font-size:12px;l
 .row-highlight{outline:3px solid #e6a23c!important;background:rgba(230,162,60,.18)!important;animation:rowHighlightPulse 1.2s ease-in-out 2;}
 @keyframes rowHighlightPulse{50%{background:rgba(230,162,60,.34)}}
 .alert-row.clickable{cursor:pointer}.alert-row.clickable:hover{background:rgba(230,162,60,.10)}
+
+/* Cards de vencimento do período de experiência */
+.experience-grid{margin:18px 0;grid-template-columns:repeat(2,minmax(0,1fr))}
+.experience-card{min-width:0}
+.experience-count{font-size:32px;font-weight:800;line-height:1.1;margin:12px 0 3px;color:var(--text)}
+.experience-list{display:grid;gap:8px;margin-top:12px;max-height:190px;overflow:auto}
+.experience-list>div{display:flex;justify-content:space-between;gap:12px;padding:9px 10px;border-radius:9px;background:var(--surface-2,rgba(120,130,150,.08))}
+.experience-list b{font-size:12px}
+.experience-list small{font-size:10px;text-align:right;color:var(--muted)}
+.supply-view-tabs{margin:10px 0}
+@media(max-width:650px){.experience-grid{grid-template-columns:1fr}.experience-list>div{flex-direction:column;gap:3px}.experience-list small{text-align:left}}
+
+/* Visão geral: listas de experiência e aviso prévio */
+.experience-list .experience-person{display:flex;flex-direction:column;align-items:flex-start;gap:5px;padding:10px 11px;border-radius:10px;background:var(--surface-2,rgba(120,130,150,.08));border:1px solid transparent}
+.experience-list .experience-person small,.notice-overview .experience-person small{font-size:10px;text-align:left;color:var(--muted);line-height:1.5}
+.experience-list .experience-person.experience-soon{border-color:var(--warning,#d69b25);background:rgba(214,155,37,.10)}
+.notice-overview{margin:0 0 18px}
+.notice-overview .experience-person{display:flex;flex-direction:column;align-items:flex-start;gap:5px;padding:10px 11px;margin-top:8px;border-radius:10px;background:var(--surface-2,rgba(120,130,150,.08))}
+@media(max-width:650px){.experience-list .experience-person{align-items:flex-start}}
