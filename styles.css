@@ -92,3 +92,11 @@ tr.detail.hidden{display:none}tr.detail td{background:#1677e80a;font-size:12px;l
 .notice-overview{margin:0 0 18px}
 .notice-overview .experience-person{display:flex;flex-direction:column;align-items:flex-start;gap:5px;padding:10px 11px;margin-top:8px;border-radius:10px;background:var(--surface-2,rgba(120,130,150,.08))}
 @media(max-width:650px){.experience-list .experience-person{align-items:flex-start}}
+
+/* Barra horizontal das tabelas permanece acessível durante a rolagem vertical */
+.table-wrap{scrollbar-gutter:stable;overscroll-behavior-x:contain}
+.table-wrap::-webkit-scrollbar{height:13px}
+.table-wrap::-webkit-scrollbar-thumb{background:#8fa1b5;border:3px solid #eef2f7;border-radius:20px}
+.table-wrap::-webkit-scrollbar-track{background:#eef2f7;border-radius:20px}
+
+#fixedXScroll{position:fixed;left:260px;right:18px;bottom:0;height:15px;overflow-x:auto;overflow-y:hidden;background:#e8edf4;border:1px solid #cbd5e1;border-radius:8px;z-index:40;box-shadow:0 -2px 8px #152b4518}#fixedXScroll>div{height:1px}@media(max-width:900px){#fixedXScroll{left:12px;right:12px;bottom:0}}

@@ -68,3 +68,13 @@ ATUALIZAÇÃO v3 — DESLIGAMENTO AUTOMÁTICO E TEMPO DE SERVIÇO
 2. Quando a data prevista de término do aviso prévio chegar ou já estiver vencida, o sistema altera automaticamente a situação do funcionário para DESLIGADO e grava a data em data_demissao. A rotina é executada ao abrir a Visão Geral e após salvar um aviso/desligamento.
 3. Na aba Funcionários, os campos manuais de afastamento foram removidos. A situação AFASTADO é calculada automaticamente com base em falta registrada para o dia atual, atestado/afastamento médico com período vigente ou suspensão vigente. Quando o período termina, volta para ATIVO (sem alterar quem já está DESLIGADO).
 4. O campo TEMPO DE SERVIÇO aparece logo após DATA DE ADMISSÃO no formulário e na tabela de Funcionários, calculado automaticamente. DATA DE DEMISSÃO também aparece na tabela e é preenchida pela rotina de aviso prévio.
+
+
+ATUALIZAÇÃO — HISTÓRICOS E INDICADORES (NOV/2026)
+- Demissão: indicador de funcionários com demissão programada (aviso com término previsto).
+- Férias: indicadores de funcionários atualmente em férias e com férias futuras programadas; tempo de serviço calculado até o início do gozo; filtro por função.
+- Atestados: indicadores de afastados e afastados INSS; histórico por funcionário e por função, com contagem do campo SISTEMA? (SIM/NÃO).
+- Faltas: histórico por funcionário e por função, com contagem SIM/NÃO do campo SISTEMA?.
+- Advertências/Suspensões: histórico por funcionário e por função; agrupamento conforme o tipo registrado.
+- Tabelas: barra horizontal fixa na parte inferior para facilitar a navegação lateral.
+- Relatório de EPI: vencimento avaliado por funcionário + item entregue, considerando a entrega mais recente daquele mesmo EPI; não transfere vencimento de um item para outro.
